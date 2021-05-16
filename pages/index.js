@@ -53,12 +53,7 @@ export default function Home({articles}) {
 
 export const getServerSideProps = async pageContext => {
    const data = await fetch(
-    `https://newsapi.org/v2/everything?q=bitcoin&pageSize=3`,
-    {
-      headers: {
-        Authorization: `${process.env.NEWS_APP_API_KEY}`,
-      },
-    },
+    `https://api.themoviedb.org/3/trending/all?api_key=${process.env.MOVIEDB_KEY}`,
   ).then(res => res.json());
 
   const {articles} = data;
