@@ -41,9 +41,6 @@ export default function Header() {
                         <a onClick={() => router.push('/')}>Home</a>
                     </li>
                     <li>
-                        <a onClick={() => router.push('/featured')}>Featured</a>
-                    </li>
-                    <li>
                         <a onClick={() => router.push('/science/1')}>Science</a>
                     </li>
                     <li>

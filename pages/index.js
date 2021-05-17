@@ -3,9 +3,13 @@ import Head from 'next/head'
 import Header from '../components/Header';
 import styles from '../styles/Header.module.css';
 
-export default function Home({articles}) {
+export default function Home({bs, tech, sports, health, ent}) {
 
-  console.log(articles);
+  const bsArticles = bs.articles;
+  const techArticles = tech.articles;
+  const sportsArticles = sports.articles;
+  const healthArticles = health.articles;
+  const entArticles = ent.articles;
 
   return (
     <div className={styles.container}>
@@ -16,34 +20,105 @@ export default function Home({articles}) {
       </Head>
       <header>
         <Header/>
+        </header>
+
+    <main className='main'>
         <div className={styles.hero}>
+        <section className={styles.section}>
+          <div className={styles.title}>
+            <p>Business</p>
+          </div>
             <div className={styles.feed}>
-                {articles.map((article, index) => (
+                {bsArticles.map((item, index) => (
                   <div key={index} className={styles.article}>
-                      <img src={article.urlToImage} alt={article.title}/>
+                    <div className={styles.article}>
+                    <img onClick={() => window.location.href=item.url} src={item.urlToImage} alt={item.title}/>
                     <div className={styles.articleDetails}>
-                      <button>Bitcon</button>
-                      <h4>{article.title}</h4>
-                      <p>{article.publishedAt}</p>
+                        <h4>{item.title}</h4>
+                        <p>{item.publishedAt}</p>
+                      </div>
                     </div>
                   </div>
                 ))}
             </div>
+            </section>
+            <section className={styles.section}>
+            <div className={styles.title}>
+              <p>Technology</p>
+            </div>
+              <div className={styles.feed}>
+                {techArticles.map((item, index) => (
+                  <div key={index} className={styles.article}>
+                    <div className={styles.article}>
+                    <img onClick={() => window.location.href=item.url} src={item.urlToImage} alt={item.title}/>
+                    <div className={styles.articleDetails}>
+                        <h4>{item.title}</h4>
+                        <p>{item.publishedAt}</p>
+                      </div>
+                    </div>
+                  </div>
+                ))}
+            </div>
+            </section>
+            <section className={styles.section}>
+            <div className={styles.title}>
+              <p>Sports</p>
+              </div>
+              <div className={styles.feed}>
+                {sportsArticles.map((item, index) => (
+                  <div key={index} className={styles.article}>
+                    <div className={styles.article}>
+                    <img onClick={() => window.location.href=item.url} src={item.urlToImage} alt={item.title}/>
+                    <div className={styles.articleDetails}>
+                        <h4>{item.title}</h4>
+                        <p>{item.publishedAt}</p>
+                      </div>
+                    </div>
+                  </div>
+                ))}
+            </div>
+            </section>
+            <section className={styles.section}>
+            <div className={styles.title}>
+              <p>Health</p>
+            </div>
+              <div className={styles.feed}>
+                {healthArticles.map((item, index) => (
+                  <div key={index} className={styles.article}>
+                    <div className={styles.article}>
+                    <img onClick={() => window.location.href=item.url} src={item.urlToImage} alt={item.title}/>
+                    <div className={styles.articleDetails}>
+                        <h4>{item.title}</h4>
+                        <p>{item.publishedAt}</p>
+                      </div>
+                    </div>
+                  </div>
+                ))}
+            </div>
+            </section>
+            <section className={styles.section}>
+            <div className={styles.title}>
+              <p>Entertainment</p>
+            </div>
+              <div className={styles.feed}>
+                {entArticles.map((item, index) => (
+                  <div key={index} className={styles.article}>
+                    <div className={styles.article}>
+                    <img onClick={() => window.location.href=item.url} src={item.urlToImage} alt={item.title}/>
+                    <div className={styles.articleDetails}>
+                        <h4>{item.title}</h4>
+                        <p>{item.publishedAt}</p>
+                      </div>
+                    </div>
+                  </div>
+                ))}
+            </div>
+            </section>
         </div>
-      </header>
-
-      <main className='main'>
-        
-      </main>
+    </main>
 
       <footer className='footer'>
-        <a
-          href="https://vercel.com?utm_source=create-next-app&utm_medium=default-template&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          All Rights Reserved newzapp
-        </a>
+        <p>All Rights Reserved NextNewsZZ</p>
       </footer>
     </div>
   )
@@ -52,16 +127,64 @@ export default function Home({articles}) {
 
 
 export const getServerSideProps = async pageContext => {
-   const data = await fetch(
-    `https://api.themoviedb.org/3/trending/all?api_key=${process.env.MOVIEDB_KEY}`,
-  ).then(res => res.json());
 
-  const {articles} = data;
-
-  return {
+  const [bsRes, techRes, sportsRes, healthRes, entRes] = await Promise.all([
+    fetch(
+      `https://newsapi.org/v2/top-headlines?category=business&language=en&pageSize=6`,
+      {
+        headers: {
+            Authorization: `${process.env.NEWS_KEY}`
+        },
+      }
+    ),
+    fetch(
+      `https://newsapi.org/v2/everything?q=technology&language=en&pageSize=6`,
+      {
+        headers: {
+            Authorization: `${process.env.NEWS_KEY}`
+        },
+      }
+    ),
+    fetch(
+      `https://newsapi.org/v2/everything?q=sports&language=en&pageSize=6`,
+      {
+        headers: {
+            Authorization: `${process.env.NEWS_KEY}`
+        },
+      }
+    ),
+    fetch(
+      `https://newsapi.org/v2/everything?q=health&language=en&pageSize=6`,
+      {
+        headers: {
+            Authorization: `${process.env.NEWS_KEY}`
+        },
+      }
+    ),
+    fetch(
+      `https://newsapi.org/v2/everything?q=entertainment&language=en&pageSize=6`,
+      {
+        headers: {
+            Authorization: `${process.env.NEWS_KEY}`
+        },
+      }
+    ),
+  ])
+  const [bs, tech, sports, health, ent] = await Promise.all([
+    bsRes.json(),
+    techRes.json(),
+    sportsRes.json(),
+    healthRes.json(),
+    entRes.json()
+  ]);
+  
+  return{
     props: {
-      articles: articles,
-    },
-  };
-};
-   
+      bs,
+      tech,
+      sports,
+      health,
+      ent
+    }
+  }
+}

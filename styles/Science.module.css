@@ -1,0 +1,15 @@
+.science{
+    margin-top: 180px;
+    width: 100%;
+    display: flex;
+}
+.main{
+    width: 70%;
+}
+.sidebar{
+    width: 30%;
+}
+.article{
+    width: 200px;
+    height: 200px;
+}
