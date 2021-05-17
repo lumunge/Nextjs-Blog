@@ -5,11 +5,11 @@ import styles from '../styles/Header.module.css';
 
 export default function Home({bs, tech, sports, health, ent}) {
 
-  const bsArticles = bs.articles;
-  const techArticles = tech.articles;
-  const sportsArticles = sports.articles;
-  const healthArticles = health.articles;
-  const entArticles = ent.articles;
+  // const bsArticles = bs.articles;
+  // const techArticles = tech.articles;
+  // const sportsArticles = sports.articles;
+  // const healthArticles = health.articles;
+  // const entArticles = ent.articles;
 
   return (
     <div className={styles.container}>
@@ -29,7 +29,7 @@ export default function Home({bs, tech, sports, health, ent}) {
             <p>Business</p>
           </div>
             <div className={styles.feed}>
-                {bsArticles.map((item, index) => (
+                {/* {bsArticles.map((item, index) => (
                   <div key={index} className={styles.article}>
                     <div className={styles.article}>
                     <img onClick={() => window.location.href=item.url} src={item.urlToImage} alt={item.title}/>
@@ -39,7 +39,7 @@ export default function Home({bs, tech, sports, health, ent}) {
                       </div>
                     </div>
                   </div>
-                ))}
+                ))} */}
             </div>
             </section>
             <section className={styles.section}>
@@ -47,7 +47,7 @@ export default function Home({bs, tech, sports, health, ent}) {
               <p>Technology</p>
             </div>
               <div className={styles.feed}>
-                {techArticles.map((item, index) => (
+                {/* {techArticles.map((item, index) => (
                   <div key={index} className={styles.article}>
                     <div className={styles.article}>
                     <img onClick={() => window.location.href=item.url} src={item.urlToImage} alt={item.title}/>
@@ -57,7 +57,7 @@ export default function Home({bs, tech, sports, health, ent}) {
                       </div>
                     </div>
                   </div>
-                ))}
+                ))} */}
             </div>
             </section>
             <section className={styles.section}>
@@ -65,7 +65,7 @@ export default function Home({bs, tech, sports, health, ent}) {
               <p>Sports</p>
               </div>
               <div className={styles.feed}>
-                {sportsArticles.map((item, index) => (
+                {/* {sportsArticles.map((item, index) => (
                   <div key={index} className={styles.article}>
                     <div className={styles.article}>
                     <img onClick={() => window.location.href=item.url} src={item.urlToImage} alt={item.title}/>
@@ -75,7 +75,7 @@ export default function Home({bs, tech, sports, health, ent}) {
                       </div>
                     </div>
                   </div>
-                ))}
+                ))} */}
             </div>
             </section>
             <section className={styles.section}>
@@ -83,7 +83,7 @@ export default function Home({bs, tech, sports, health, ent}) {
               <p>Health</p>
             </div>
               <div className={styles.feed}>
-                {healthArticles.map((item, index) => (
+                {/* {healthArticles.map((item, index) => (
                   <div key={index} className={styles.article}>
                     <div className={styles.article}>
                     <img onClick={() => window.location.href=item.url} src={item.urlToImage} alt={item.title}/>
@@ -93,7 +93,7 @@ export default function Home({bs, tech, sports, health, ent}) {
                       </div>
                     </div>
                   </div>
-                ))}
+                ))} */}
             </div>
             </section>
             <section className={styles.section}>
@@ -101,7 +101,7 @@ export default function Home({bs, tech, sports, health, ent}) {
               <p>Entertainment</p>
             </div>
               <div className={styles.feed}>
-                {entArticles.map((item, index) => (
+                {/* {entArticles.map((item, index) => (
                   <div key={index} className={styles.article}>
                     <div className={styles.article}>
                     <img onClick={() => window.location.href=item.url} src={item.urlToImage} alt={item.title}/>
@@ -111,7 +111,7 @@ export default function Home({bs, tech, sports, health, ent}) {
                       </div>
                     </div>
                   </div>
-                ))}
+                ))} */}
             </div>
             </section>
         </div>
@@ -126,65 +126,65 @@ export default function Home({bs, tech, sports, health, ent}) {
 
 
 
-export const getServerSideProps = async pageContext => {
+// export const getServerSideProps = async pageContext => {
 
-  const [bsRes, techRes, sportsRes, healthRes, entRes] = await Promise.all([
-    fetch(
-      `https://newsapi.org/v2/top-headlines?category=business&language=en&pageSize=6`,
-      {
-        headers: {
-            Authorization: `${process.env.NEWS_KEY}`
-        },
-      }
-    ),
-    fetch(
-      `https://newsapi.org/v2/everything?q=technology&language=en&pageSize=6`,
-      {
-        headers: {
-            Authorization: `${process.env.NEWS_KEY}`
-        },
-      }
-    ),
-    fetch(
-      `https://newsapi.org/v2/everything?q=sports&language=en&pageSize=6`,
-      {
-        headers: {
-            Authorization: `${process.env.NEWS_KEY}`
-        },
-      }
-    ),
-    fetch(
-      `https://newsapi.org/v2/everything?q=health&language=en&pageSize=6`,
-      {
-        headers: {
-            Authorization: `${process.env.NEWS_KEY}`
-        },
-      }
-    ),
-    fetch(
-      `https://newsapi.org/v2/everything?q=entertainment&language=en&pageSize=6`,
-      {
-        headers: {
-            Authorization: `${process.env.NEWS_KEY}`
-        },
-      }
-    ),
-  ])
-  const [bs, tech, sports, health, ent] = await Promise.all([
-    bsRes.json(),
-    techRes.json(),
-    sportsRes.json(),
-    healthRes.json(),
-    entRes.json()
-  ]);
+//   const [bsRes, techRes, sportsRes, healthRes, entRes] = await Promise.all([
+//     fetch(
+//       `https://newsapi.org/v2/everything?q=reactjs&language=en&pageSize=6`,
+//       {
+//         headers: {
+//             Authorization: `${process.env.NEWS_KEY}`
+//         },
+//       }
+//     ),
+//     fetch(
+//       `https://newsapi.org/v2/everything?q=vim&language=en&pageSize=6`,
+//       {
+//         headers: {
+//             Authorization: `${process.env.NEWS_KEY}`
+//         },
+//       }
+//     ),
+//     fetch(
+//       `https://newsapi.org/v2/everything?q=etherium&language=en&pageSize=6`,
+//       {
+//         headers: {
+//             Authorization: `${process.env.NEWS_KEY}`
+//         },
+//       }
+//     ),
+//     fetch(
+//       `https://newsapi.org/v2/everything?q=nextjs&language=en&pageSize=6`,
+//       {
+//         headers: {
+//             Authorization: `${process.env.NEWS_KEY}`
+//         },
+//       }
+//     ),
+//     fetch(
+//       `https://newsapi.org/v2/everything?q=blockchain&language=en&pageSize=6`,
+//       {
+//         headers: {
+//             Authorization: `${process.env.NEWS_KEY}`
+//         },
+//       }
+//     ),
+//   ])
+//   const [bs, tech, sports, health, ent] = await Promise.all([
+//     bsRes.json(),
+//     techRes.json(),
+//     sportsRes.json(),
+//     healthRes.json(),
+//     entRes.json()
+//   ]);
   
-  return{
-    props: {
-      bs,
-      tech,
-      sports,
-      health,
-      ent
-    }
-  }
-}
+//   return{
+//     props: {
+//       bs,
+//       tech,
+//       sports,
+//       health,
+//       ent
+//     }
+//   }
+// }

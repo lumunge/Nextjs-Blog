@@ -8,32 +8,8 @@ export default function Header() {
 
     return (
         <div className={styles.header}>
-            <div className={styles.contact}>
-                <div className={styles.socials}>
-                    <i>
-                        <FaFacebookF/>
-                    </i>
-                    <i>
-                        <FaTwitter/>
-                    </i>
-                    <i>
-                        <FaEnvelopeOpenText/>
-                    </i>
-                    <i>
-                        <FaYoutube/>
-                    </i>
-                </div>
-            </div>
             <div className={styles.logo}>
                     <h1>Next News</h1>
-                <div className={styles.icons}>
-                    <button>
-                    <FaSearch/>
-                    </button>
-                    <button>
-                    <FaBars/>
-                    </button>
-                </div>
             </div>
             <div className={styles.nav}>
                 <ul>
@@ -41,16 +17,7 @@ export default function Header() {
                         <a onClick={() => router.push('/')}>Home</a>
                     </li>
                     <li>
-                        <a onClick={() => router.push('/science/1')}>Science</a>
-                    </li>
-                    <li>
                         <a onClick={() => router.push('/tech/1')}>Tech</a>
-                    </li>
-                    <li>
-                        <a onClick={() => router.push('/business/1')}>Business</a>
-                    </li>
-                    <li>
-                        <a onClick={() => router.push('/sports/1')}>Sports</a>
                     </li>
                     <li>
                         <a onClick={() => window.location.href='https://github.com/lumungep12'}>Github</a>
