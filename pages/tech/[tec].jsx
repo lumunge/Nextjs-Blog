@@ -5,18 +5,20 @@ import styles from '../../styles/Tech.module.css';
 
 export default function tech({articles, pageNumber}){
 
-    // const sciArticles = articles.articles;
+    const cyberArticles = articles.articles;
 
-    // console.log(sciArticles);
+    // console.log(articles);
     
     const router = useRouter();
 
     return (
-        <div className={styles.science}>
+        <div className={styles.tech}>
             <Header/>
+            <div className={styles.title}>
+                <p>Cyber Security</p>
+            </div>
         <div className={styles.main}>
-            <h1>Main Main Main</h1>
-            {/* {sciArticles.map((item, index) => (
+            {cyberArticles.map((item, index) => (
                 <div key={index} className={styles.article}>
                     <div className={styles.itemImg}>
                         <img src={item.urlToImage} alt={item.title} />
@@ -26,28 +28,30 @@ export default function tech({articles, pageNumber}){
                         <p>{item.description.length > 200 && item.description.substr(0, 200) + '.....'}</p>
                     </div>
                 </div>
-            ))} */}
+            ))}
             <div className={styles.paginator}>
-                <div>
-                   <button onClick={() => {
+                <div >
+                   <span className={pageNumber === 1 ? styles.disabled : styles.active}
+                     onClick={() => {
                        if(pageNumber > 1){
                            router.push(`/tech/${pageNumber - 1}`)
                             .then(() => window.scrollTo(0, 0))
                        }
-                   }} className={pageNumber === 1 ? styles.disabled : styles.active}> 
+                   }}> 
                    <FaChevronCircleLeft/>
-                    </button>
+                    </span>
                 </div>
                 <div>{pageNumber}</div>
-                <div>
-                    <button onClick={() => {
+                <div >
+                    <span className={pageNumber === 5 ? styles.disabled : styles.active}
+                     onClick={() => {
                         if(pageNumber < 5){
                             router.push(`/tech/${pageNumber + 1}`)
                             .then(() => window.scrollTo(0, 0))
                         }
-                    }} className={pageNumber === 5 ? styles.disabled : styles.active}> 
+                    }} > 
                         <FaChevronCircleRight/>
-                    </button>
+                    </span>
                 </div>
             </div>
         </div>
@@ -57,7 +61,7 @@ export default function tech({articles, pageNumber}){
 
 export const getServerSideProps = async pageContext => {
 
-    const pageNumber = pageContext.query.sci;
+    const pageNumber = pageContext.query.tec;
 
     if(!pageNumber || pageNumber < 1 || pageNumber > 5){
         return{
@@ -69,7 +73,7 @@ export const getServerSideProps = async pageContext => {
     }
 
       const res = await fetch(
-        `https://newsapi.org/v2/everything?q=cybersecurity&language=en&pageSize=6page=${pageNumber}`,
+        `https://newsapi.org/v2/everything?q=cybersecurity&language=en&pageSize=6&page=${pageNumber}`,
         {
             headers: {
                 Authorization: `${process.env.NEWS_KEY}`

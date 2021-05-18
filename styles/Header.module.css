@@ -12,6 +12,8 @@
 .nav ul{
     display: flex;
     justify-content: center;
+    color:  #2ecc71;
+    font-weight: bold;
 }
 .nav ul li{
     padding: 0 1rem;
@@ -20,6 +22,7 @@
 }
 .nav ul li:hover{
     cursor: pointer;
+    color: #fff;
 }
 .logo{
     text-align: center;
@@ -43,6 +46,7 @@
     padding-left: 1rem;
     font-weight: bold;
     font-size: 2rem;
+    color:  #2ecc71;
 }
 .feed{
     width: 100%;
@@ -72,3 +76,31 @@
     background: linear-gradient(to top, rgba(0, 0, 0, 0.55));
     padding: 0 0 1rem 1rem;
 }
+/* responsive design */
+@media only screen and (max-width: 1200px) {
+    .feed{
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+@media only screen and (max-width: 900px){
+    .feed{
+        display: grid;
+        grid-template-columns: repeat(1, 1fr);
+    }
+    .header{
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+    }
+    .logo h1{
+        font-size: 1.4rem;
+        padding-bottom: 1rem;
+    }
+
+}
+@media only screen and (max-width: 500px){
+ 
+}
+

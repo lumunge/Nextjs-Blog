@@ -1,13 +1,29 @@
-.science{
-    margin-top: 180px;
+.tech{
     width: 100%;
     display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
 }
 .main{
     width: 100%;
     display: flex;
     flex-direction: column;
     align-items: center;
+    /* margin-top: 100px; */
+}
+.title{
+    margin-top: 110px;
+    margin-left: 31%;
+    border-left: 2px solid #000;
+    padding-right: 1rem;
+    position: relative;
+    float: left;
+}
+.title p{
+    padding-left: 1rem;
+    font-weight: bold;
+    font-size: 2rem;
+    color: #2ecc71;
 }
 
 .article{
@@ -23,23 +39,18 @@
     width: 100%;
     height: 100%;
 }
-.sidebar{
-    padding: 0  1.5rem;
-    border-left: 1px solid #000;
-}
 .paginator{
     display: flex;
 }
-.paginator div button{
+.paginator div span{
     margin: 0 2rem;
     border: none;
     background-color: transparent;
-    cursor: pointer;
     font-size: 2rem;
 }
-button .disabled{
+.disabled{
     cursor: not-allowed;
 }
-.article{
+.active{
     cursor: pointer;
 }
