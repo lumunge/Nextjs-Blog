@@ -1,5 +1,4 @@
 import {useRouter} from 'next/router';
-import { FaFacebookF, FaTwitter, FaEnvelopeOpenText, FaSearch, FaYoutube, FaBars } from "react-icons/fa";
 import styles from '../styles/Header.module.css';
 
 export default function Header() {

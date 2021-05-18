@@ -11,6 +11,8 @@ export default function Home({bs, tech, sports, health, ent}) {
   // const healthArticles = health.articles;
   // const entArticles = ent.articles;
 
+  console.log(bs);
+
   return (
     <div className={styles.container}>
       <Head>
@@ -126,65 +128,65 @@ export default function Home({bs, tech, sports, health, ent}) {
 
 
 
-// export const getServerSideProps = async pageContext => {
+export const getServerSideProps = async pageContext => {
 
-//   const [bsRes, techRes, sportsRes, healthRes, entRes] = await Promise.all([
-//     fetch(
-//       `https://newsapi.org/v2/everything?q=reactjs&language=en&pageSize=6`,
-//       {
-//         headers: {
-//             Authorization: `${process.env.NEWS_KEY}`
-//         },
-//       }
-//     ),
-//     fetch(
-//       `https://newsapi.org/v2/everything?q=vim&language=en&pageSize=6`,
-//       {
-//         headers: {
-//             Authorization: `${process.env.NEWS_KEY}`
-//         },
-//       }
-//     ),
-//     fetch(
-//       `https://newsapi.org/v2/everything?q=etherium&language=en&pageSize=6`,
-//       {
-//         headers: {
-//             Authorization: `${process.env.NEWS_KEY}`
-//         },
-//       }
-//     ),
-//     fetch(
-//       `https://newsapi.org/v2/everything?q=nextjs&language=en&pageSize=6`,
-//       {
-//         headers: {
-//             Authorization: `${process.env.NEWS_KEY}`
-//         },
-//       }
-//     ),
-//     fetch(
-//       `https://newsapi.org/v2/everything?q=blockchain&language=en&pageSize=6`,
-//       {
-//         headers: {
-//             Authorization: `${process.env.NEWS_KEY}`
-//         },
-//       }
-//     ),
-//   ])
-//   const [bs, tech, sports, health, ent] = await Promise.all([
-//     bsRes.json(),
-//     techRes.json(),
-//     sportsRes.json(),
-//     healthRes.json(),
-//     entRes.json()
-//   ]);
+  const [bsRes, techRes, sportsRes, healthRes, entRes] = await Promise.all([
+    fetch(
+      `https://newsapi.org/v2/everything?q=reactjs&language=en&pageSize=6`,
+      {
+        headers: {
+            Authorization: `${process.env.NEWS_KEY}`
+        },
+      }
+    ),
+    fetch(
+      `https://newsapi.org/v2/everything?q=vim&language=en&pageSize=6`,
+      {
+        headers: {
+            Authorization: `${process.env.NEWS_KEY}`
+        },
+      }
+    ),
+    fetch(
+      `https://newsapi.org/v2/everything?q=etherium&language=en&pageSize=6`,
+      {
+        headers: {
+            Authorization: `${process.env.NEWS_KEY}`
+        },
+      }
+    ),
+    fetch(
+      `https://newsapi.org/v2/everything?q=nextjs&language=en&pageSize=6`,
+      {
+        headers: {
+            Authorization: `${process.env.NEWS_KEY}`
+        },
+      }
+    ),
+    fetch(
+      `https://newsapi.org/v2/everything?q=blockchain&language=en&pageSize=6`,
+      {
+        headers: {
+            Authorization: `${process.env.NEWS_KEY}`
+        },
+      }
+    ),
+  ])
+  const [bs, tech, sports, health, ent] = await Promise.all([
+    bsRes.json(),
+    techRes.json(),
+    sportsRes.json(),
+    healthRes.json(),
+    entRes.json()
+  ]);
   
-//   return{
-//     props: {
-//       bs,
-//       tech,
-//       sports,
-//       health,
-//       ent
-//     }
-//   }
-// }
+  return{
+    props: {
+      bs,
+      tech,
+      sports,
+      health,
+      ent
+    }
+  }
+}

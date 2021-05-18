@@ -1,5 +1,5 @@
-import router from 'next/router';
 import {useRouter} from 'next/router';
+import { FaChevronCircleLeft, FaChevronCircleRight} from "react-icons/fa";
 import Header from '../../components/Header';
 import styles from '../../styles/Tech.module.css';
 
@@ -27,7 +27,7 @@ export default function tech({articles, pageNumber}){
                     </div>
                 </div>
             ))} */}
-            <div>
+            <div className={styles.paginator}>
                 <div>
                    <button onClick={() => {
                        if(pageNumber > 1){
@@ -35,7 +35,7 @@ export default function tech({articles, pageNumber}){
                             .then(() => window.scrollTo(0, 0))
                        }
                    }} className={pageNumber === 1 ? styles.disabled : styles.active}> 
-                   Previous
+                   <FaChevronCircleLeft/>
                     </button>
                 </div>
                 <div>{pageNumber}</div>
@@ -46,48 +46,45 @@ export default function tech({articles, pageNumber}){
                             .then(() => window.scrollTo(0, 0))
                         }
                     }} className={pageNumber === 5 ? styles.disabled : styles.active}> 
-                        Next
+                        <FaChevronCircleRight/>
                     </button>
                 </div>
             </div>
-        </div>
-        <div className={styles.sidebar}>
-            <h2>Sidestep Here</h2>
         </div>
         </div>
     )
 }
 
-// export const getServerSideProps = async pageContext => {
+export const getServerSideProps = async pageContext => {
 
-//     const pageNumber = pageContext.query.sci;
+    const pageNumber = pageContext.query.sci;
 
-//     if(!pageNumber || pageNumber < 1 || pageNumber > 5){
-//         return{
-//             props: {
-//                 articles: [],
-//                 pageNumber: 1
-//             }
-//         }
-//     }
+    if(!pageNumber || pageNumber < 1 || pageNumber > 5){
+        return{
+            props: {
+                articles: [],
+                pageNumber: 1
+            }
+        }
+    }
 
-//       const res = await fetch(
-//         `https://newsapi.org/v2/everything?q=cybersecurity&language=en&pageSize=6page=${pageNumber}`,
-//         {
-//             headers: {
-//                 Authorization: `${process.env.NEWS_KEY}`
-//             },
-//         }
-//         );
+      const res = await fetch(
+        `https://newsapi.org/v2/everything?q=cybersecurity&language=en&pageSize=6page=${pageNumber}`,
+        {
+            headers: {
+                Authorization: `${process.env.NEWS_KEY}`
+            },
+        }
+        );
 
-//     const data = await res.json();
+    const data = await res.json();
     
-//     const articles = data;
+    const articles = data;
 
-//     return{
-//         props: {
-//             articles,
-//             pageNumber: Number.parseInt(pageNumber)
-//         }
-//     }
-// }
+    return{
+        props: {
+            articles,
+            pageNumber: Number.parseInt(pageNumber)
+        }
+    }
+}
