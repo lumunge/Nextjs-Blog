@@ -31,6 +31,7 @@ A Fully Responsive Nextjs News Blog Website
 
 ![Screenshot_20210518_130026](https://user-images.githubusercontent.com/58906058/118632131-a6ccac80-b7bf-11eb-8be6-94d4d9bde1d7.png)
 
+### MOBILE AND TABLET RESPONSIVE DESIGN
 
 ![Screenshot_20210518_130042](https://user-images.githubusercontent.com/58906058/118632143-a7fdd980-b7bf-11eb-930c-6810ab911713.png)
 
