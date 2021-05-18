@@ -2,22 +2,18 @@
     width: 100%;
     display: flex;
     flex-direction: column;
-    justify-content: flex-start;
 }
 .main{
     width: 100%;
     display: flex;
     flex-direction: column;
     align-items: center;
-    /* margin-top: 100px; */
 }
 .title{
     margin-top: 110px;
-    margin-left: 31%;
+    margin-left: 3rem;
     border-left: 2px solid #000;
     padding-right: 1rem;
-    position: relative;
-    float: left;
 }
 .title p{
     padding-left: 1rem;
@@ -53,4 +49,31 @@
 }
 .active{
     cursor: pointer;
+}
+@media only screen and (max-width: 900px){
+    .tech{
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+    }
+    .article{
+        width: 400px;
+        height: 200px;
+        margin: 4.5rem 0;
+    }
+    .itemImg{
+        width: 400px;
+        height: 200px;
+    }
+    .title{
+        margin-bottom: -2rem;
+        /* margin-top: 110px;
+        margin-left: 31%;
+        border-left: 2px solid #000;
+        padding-right: 1rem;
+        position: relative;
+        float: left; */
+    }
 }

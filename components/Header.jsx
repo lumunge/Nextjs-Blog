@@ -19,7 +19,7 @@ export default function Header() {
                         <a onClick={() => router.push('/tech/1')}>Tech</a>
                     </li>
                     <li>
-                        <a onClick={() => window.location.href='https://github.com/lumungep12'}>Github</a>
+                        <a onClick={() => window.location.href='https://github.com/lumungep12/Nextjs-Blog'}>Source</a>
                     </li>
                 </ul>
         </div>

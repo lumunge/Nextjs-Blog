@@ -6,8 +6,6 @@ import styles from '../../styles/Tech.module.css';
 export default function tech({articles, pageNumber}){
 
     const cyberArticles = articles.articles;
-
-    // console.log(articles);
     
     const router = useRouter();
 

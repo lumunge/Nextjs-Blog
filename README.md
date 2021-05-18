@@ -1,34 +1,50 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+### REACT NEXTJS NEWS BLOG WEBSITE
 
-## Getting Started
+### ABOUT
+A Fully Responsive Nextjs News Blog Website
 
-First, run the development server:
+### TECHNOLOGIES USED:
+    * HTML5
+    * CSS3
+    * Reactjs 
+    * Next js
+    * Apis
+    * ServerSide Rendering
 
-```bash
-npm run dev
-# or
-yarn dev
-```
+### FEATURES
+    * Next js Features
+    * News API
+    * Css Grid
+    * Css Flexbox
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
 
-You can start editing the page by modifying `pages/index.js`. The page auto-updates as you edit the file.
+### PROJECT SCREENSHOTS
 
-[API routes](https://nextjs.org/docs/api-routes/introduction) can be accessed on [http://localhost:3000/api/hello](http://localhost:3000/api/hello). This endpoint can be edited in `pages/api/hello.js`.
+![Screenshot_20210518_125949](https://user-images.githubusercontent.com/58906058/118632100-9fa59e80-b7bf-11eb-92bf-e84247e16608.png)
 
-The `pages/api` directory is mapped to `/api/*`. Files in this directory are treated as [API routes](https://nextjs.org/docs/api-routes/introduction) instead of React pages.
 
-## Learn More
+![Screenshot_20210518_130004](https://user-images.githubusercontent.com/58906058/118632117-a3d1bc00-b7bf-11eb-9e54-f6a9643c6255.png)
 
-To learn more about Next.js, take a look at the following resources:
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+![Screenshot_20210518_130011](https://user-images.githubusercontent.com/58906058/118632123-a59b7f80-b7bf-11eb-914d-a3379f8504ca.png)
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
 
-## Deploy on Vercel
+![Screenshot_20210518_130026](https://user-images.githubusercontent.com/58906058/118632131-a6ccac80-b7bf-11eb-8be6-94d4d9bde1d7.png)
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+![Screenshot_20210518_130042](https://user-images.githubusercontent.com/58906058/118632143-a7fdd980-b7bf-11eb-930c-6810ab911713.png)
+
+![Screenshot_20210518_130048](https://user-images.githubusercontent.com/58906058/118632149-a9c79d00-b7bf-11eb-9755-7d5f86990506.png)
+
+### HOSTED @
+
+Coming Soon...
+
+
+### SETUP
+    * https://github.com/lumungep12/Nextjs-Blog.git
+    * npm i 
+    * npm run dev
+
+
+

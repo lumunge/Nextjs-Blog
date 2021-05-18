@@ -4,11 +4,11 @@ import styles from '../styles/Header.module.css';
 
 export default function Home({js, prog, ether, nextjs, block}) {
 
-  // const jsArticles = js.articles;
-  // const progArticles = prog.articles;
-  // const etherArticles = ether.articles;
-  // const nextjsArticles = nextjs.articles;
-  // const blockArticles = block.articles;
+  const jsArticles = js.articles;
+  const progArticles = prog.articles;
+  const etherArticles = ether.articles;
+  const nextjsArticles = nextjs.articles;
+  const blockArticles = block.articles;
   
   return (
     <div className={styles.container}>
@@ -28,7 +28,7 @@ export default function Home({js, prog, ether, nextjs, block}) {
             <p>Javascript</p>
           </div>
             <div className={styles.feed}>
-                {/* {jsArticles.map((item, index) => (
+                {jsArticles.map((item, index) => (
                   <div key={index} className={styles.article}>
                     <div className={styles.article}>
                     <img onClick={() => window.location.href=item.url} src={item.urlToImage} alt={item.title}/>
@@ -38,7 +38,7 @@ export default function Home({js, prog, ether, nextjs, block}) {
                       </div>
                     </div>
                   </div>
-                ))} */}
+                ))}
             </div>
             </section>
             <section className={styles.section}>
@@ -46,7 +46,7 @@ export default function Home({js, prog, ether, nextjs, block}) {
               <p>Programming</p>
             </div>
               <div className={styles.feed}>
-                {/* {progArticles.map((item, index) => (
+                {progArticles.map((item, index) => (
                   <div key={index} className={styles.article}>
                     <div className={styles.article}>
                     <img onClick={() => window.location.href=item.url} src={item.urlToImage} alt={item.title}/>
@@ -56,7 +56,7 @@ export default function Home({js, prog, ether, nextjs, block}) {
                       </div>
                     </div>
                   </div>
-                ))} */}
+                ))}
             </div>
             </section>
             <section className={styles.section}>
@@ -64,7 +64,7 @@ export default function Home({js, prog, ether, nextjs, block}) {
               <p>Etherium</p>
               </div>
               <div className={styles.feed}>
-                {/* {etherArticles.map((item, index) => (
+                {etherArticles.map((item, index) => (
                   <div key={index} className={styles.article}>
                     <div className={styles.article}>
                     <img onClick={() => window.location.href=item.url} src={item.urlToImage} alt={item.title}/>
@@ -74,7 +74,7 @@ export default function Home({js, prog, ether, nextjs, block}) {
                       </div>
                     </div>
                   </div>
-                ))} */}
+                ))}
             </div>
             </section>
             <section className={styles.section}>
@@ -82,7 +82,7 @@ export default function Home({js, prog, ether, nextjs, block}) {
               <p>Next Js</p>
             </div>
               <div className={styles.feed}>
-                {/* {nextjsArticles.map((item, index) => (
+                {nextjsArticles.map((item, index) => (
                   <div key={index} className={styles.article}>
                     <div className={styles.article}>
                     <img onClick={() => window.location.href=item.url} src={item.urlToImage} alt={item.title}/>
@@ -92,7 +92,7 @@ export default function Home({js, prog, ether, nextjs, block}) {
                       </div>
                     </div>
                   </div>
-                ))} */}
+                ))}
             </div>
             </section>
             <section className={styles.section}>
@@ -100,7 +100,7 @@ export default function Home({js, prog, ether, nextjs, block}) {
               <p>Blockchain</p>
             </div>
               <div className={styles.feed}>
-                {/* {blockArticles.map((item, index) => (
+                {blockArticles.map((item, index) => (
                   <div key={index} className={styles.article}>
                     <div className={styles.article}>
                     <img onClick={() => window.location.href=item.url} src={item.urlToImage} alt={item.title}/>
@@ -110,7 +110,7 @@ export default function Home({js, prog, ether, nextjs, block}) {
                       </div>
                     </div>
                   </div>
-                ))} */}
+                ))}
             </div>
             </section>
         </div>
@@ -125,65 +125,65 @@ export default function Home({js, prog, ether, nextjs, block}) {
 
 
 
-// export const getServerSideProps = async pageContext => {
+export const getServerSideProps = async pageContext => {
 
-//   const [jsRes, progRes, etherRes, nextRes, blockRes] = await Promise.all([
-//     fetch(
-//       `https://newsapi.org/v2/everything?q=javascript&language=en&pageSize=6`,
-//       {
-//         headers: {
-//             Authorization: `${process.env.NEWS_KEY}`
-//         },
-//       }
-//     ),
-//     fetch(
-//       `https://newsapi.org/v2/everything?q=programming&language=en&pageSize=6`,
-//       {
-//         headers: {
-//             Authorization: `${process.env.NEWS_KEY}`
-//         },
-//       }
-//     ),
-//     fetch(
-//       `https://newsapi.org/v2/everything?q=etherium&language=en&pageSize=6`,
-//       {
-//         headers: {
-//             Authorization: `${process.env.NEWS_KEY}`
-//         },
-//       }
-//     ),
-//     fetch(
-//       `https://newsapi.org/v2/everything?q=nextjs&language=en&pageSize=6`,
-//       {
-//         headers: {
-//             Authorization: `${process.env.NEWS_KEY}`
-//         },
-//       }
-//     ),
-//     fetch(
-//       `https://newsapi.org/v2/everything?q=blockchain&language=en&pageSize=6`,
-//       {
-//         headers: {
-//             Authorization: `${process.env.NEWS_KEY}`
-//         },
-//       }
-//     ),
-//   ])
-//   const [js, prog, ether, nextjs, block] = await Promise.all([
-//     jsRes.json(),
-//     progRes.json(),
-//     etherRes.json(),
-//     nextRes.json(),
-//     blockRes.json()
-//   ]);
+  const [jsRes, progRes, etherRes, nextRes, blockRes] = await Promise.all([
+    fetch(
+      `https://newsapi.org/v2/everything?q=javascript&language=en&pageSize=6`,
+      {
+        headers: {
+            Authorization: `${process.env.NEWS_KEY}`
+        },
+      }
+    ),
+    fetch(
+      `https://newsapi.org/v2/everything?q=programming&language=en&pageSize=6`,
+      {
+        headers: {
+            Authorization: `${process.env.NEWS_KEY}`
+        },
+      }
+    ),
+    fetch(
+      `https://newsapi.org/v2/everything?q=etherium&language=en&pageSize=6`,
+      {
+        headers: {
+            Authorization: `${process.env.NEWS_KEY}`
+        },
+      }
+    ),
+    fetch(
+      `https://newsapi.org/v2/everything?q=nextjs&language=en&pageSize=6`,
+      {
+        headers: {
+            Authorization: `${process.env.NEWS_KEY}`
+        },
+      }
+    ),
+    fetch(
+      `https://newsapi.org/v2/everything?q=blockchain&language=en&pageSize=6`,
+      {
+        headers: {
+            Authorization: `${process.env.NEWS_KEY}`
+        },
+      }
+    ),
+  ])
+  const [js, prog, ether, nextjs, block] = await Promise.all([
+    jsRes.json(),
+    progRes.json(),
+    etherRes.json(),
+    nextRes.json(),
+    blockRes.json()
+  ]);
   
-//   return{
-//     props: {
-//       js,
-//       prog,
-//       ether,
-//       nextjs,
-//       block
-//     }
-//   }
-// }
+  return{
+    props: {
+      js,
+      prog,
+      ether,
+      nextjs,
+      block
+    }
+  }
+}
