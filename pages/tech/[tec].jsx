@@ -2,13 +2,33 @@ import {useRouter} from 'next/router';
 import { FaChevronCircleLeft, FaChevronCircleRight} from "react-icons/fa";
 import Navbar from '../../components/Navbar';
 import styles from '../../styles/Tech.module.css';
-import {Container, Card, CardMedia, Typography} from "@material-ui/core";
+import {Container, Grid,Card, CardMedia, Typography, Box} from "@material-ui/core";
 import { makeStyles } from "@material-ui/core/styles";
 
 const useStyles = makeStyles(() => ({
+    main:{
+        width: "100%",
+        display: "flex",
+        flexDirection: "column",
+        alignItems: "center",
+        paddingTop: "6rem",
+    },
+    card:{
+        width: "500px",
+        height: "400px",
+        margin: "2rem 0"
+    },
 	image: {
 		height: 200,
 	},
+    title: {
+		borderLeft: "2px solid #2ecc71",
+		padding: "1rem 0 1rem 1rem",
+	},
+    paginator: {
+        display: "flex",
+        padding: "2rem 0"
+    }
 }));
 
 export default function tech({articles, pageNumber}){
@@ -22,19 +42,23 @@ export default function tech({articles, pageNumber}){
     return (
         <Container>
             <Navbar/>
-                <p>Random Tech News</p>
-        <div className={styles.main}>
+            <div className={classes.main}>
+                <Typography className={classes.title} variant="h5">
+                Random Tech News
+					</Typography>
+                
             {cyberArticles.map((item, index) => (
-                <Card key={index}>
+                <Card key={index} className={classes.card}>
                     <CardMedia image={item.urlToImage} title={item.title} className={classes.image} />
                     <Box>
-                        <Typography>{item.title}</Typography>
-                        <Typography>{item.description.length > 200 && item.description.substr(0, 200) + '.....'}</Typography>
+                        <Typography variant="h6">{item.title}</Typography>
+                        <Typography variant="subtitle1">{item.description.length > 200 && item.description.substr(0, 200) + '.....'}</Typography>
                     </Box>
                 </Card>
+             
             ))}
-            <div className={styles.paginator}>
-                <div >
+            <Box className={classes.paginator}>
+                <div>
                    <span className={pageNumber === 1 ? styles.disabled : styles.active}
                      onClick={() => {
                        if(pageNumber > 1){
@@ -45,7 +69,7 @@ export default function tech({articles, pageNumber}){
                    <FaChevronCircleLeft/>
                     </span>
                 </div>
-                <div>{pageNumber}</div>
+                <Typography>{pageNumber}</Typography>
                 <div >
                     <span className={pageNumber === 5 ? styles.disabled : styles.active}
                      onClick={() => {
@@ -57,8 +81,8 @@ export default function tech({articles, pageNumber}){
                         <FaChevronCircleRight/>
                     </span>
                 </div>
+            </Box>
             </div>
-        </div>
         </Container>
     )
 }

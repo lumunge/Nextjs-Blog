@@ -1,6 +1,5 @@
 import Head from "next/head";
 import Navbar from "../components/Navbar";
-import styles from "../styles/Header.module.css";
 import {
 	Container,
 	Grid,
@@ -33,8 +32,11 @@ export default function Home({ js, prog, ether, nextjs, block }) {
 
 	const classes = useStyles();
 
+	if (!js && !prog && !ether && !nextjs && !block)
+		return <div>Loading Data</div>;
+
 	return (
-		<div className={styles.container}>
+		<div>
 			<Head>
 				<title>Create Next App</title>
 				<meta

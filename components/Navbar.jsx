@@ -1,16 +1,22 @@
 import { useRouter } from "next/router";
-import styles from "../styles/Header.module.css";
 import { AppBar, Toolbar, Button, Typography } from "@material-ui/core";
+import { makeStyles } from "@material-ui/core/styles";
 
+const useStyles = makeStyles(() => ({
+    navLinks:{
+        paddingLeft: "1rem"
+    },
+}));
 export default function Header() {
 	const router = useRouter();
 
+    const classes = useStyles();
 
 	return (
-		<>
 			<AppBar>
-				<Toolbar>
-                    <Typography variant="h3">Next News</Typography>
+                <Toolbar>
+                    <Typography variant="h5">Next News</Typography>
+                    <div className={classes.navLinks}>
 					<Button onClick={() => router.push("/")}>Home</Button>
 					<Button onClick={() => router.push("/tech/1")}>Tech</Button>
 					<Button
@@ -21,8 +27,8 @@ export default function Header() {
 					>
 						Source
 					</Button>
-				</Toolbar>
+                    </div>
+                    </Toolbar>
 			</AppBar>
-		</>
 	);
 }
