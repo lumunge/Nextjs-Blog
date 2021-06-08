@@ -1,7 +1,15 @@
 import {useRouter} from 'next/router';
 import { FaChevronCircleLeft, FaChevronCircleRight} from "react-icons/fa";
-import Header from '../../components/Header';
+import Navbar from '../../components/Navbar';
 import styles from '../../styles/Tech.module.css';
+import {Container, Card, CardMedia, Typography} from "@material-ui/core";
+import { makeStyles } from "@material-ui/core/styles";
+
+const useStyles = makeStyles(() => ({
+	image: {
+		height: 200,
+	},
+}));
 
 export default function tech({articles, pageNumber}){
 
@@ -9,23 +17,21 @@ export default function tech({articles, pageNumber}){
     
     const router = useRouter();
 
+    const classes = useStyles();
+
     return (
-        <div className={styles.tech}>
-            <Header/>
-            <div className={styles.title}>
-                <p>Cyber Security</p>
-            </div>
+        <Container>
+            <Navbar/>
+                <p>Random Tech News</p>
         <div className={styles.main}>
             {cyberArticles.map((item, index) => (
-                <div key={index} className={styles.article}>
-                    <div className={styles.itemImg}>
-                        <img src={item.urlToImage} alt={item.title} />
-                    </div>
-                    <div>
-                        <h4>{item.title}</h4>
-                        <p>{item.description.length > 200 && item.description.substr(0, 200) + '.....'}</p>
-                    </div>
-                </div>
+                <Card key={index}>
+                    <CardMedia image={item.urlToImage} title={item.title} className={classes.image} />
+                    <Box>
+                        <Typography>{item.title}</Typography>
+                        <Typography>{item.description.length > 200 && item.description.substr(0, 200) + '.....'}</Typography>
+                    </Box>
+                </Card>
             ))}
             <div className={styles.paginator}>
                 <div >
@@ -53,7 +59,7 @@ export default function tech({articles, pageNumber}){
                 </div>
             </div>
         </div>
-        </div>
+        </Container>
     )
 }
 
